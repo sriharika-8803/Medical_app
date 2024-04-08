@@ -9,11 +9,22 @@ import { toast } from 'react-toastify';
 const Sidepanel = ({ doctorId, ticketPrice, timeSlots }) => {
 
   const bookingHandler = async() => {
+
+    const user =JSON.parse(localStorage.getItem("user"))
+    const patientId = user._id;
+
+    // console.log(patientId)
+    // console.log(doctorId)
+
+
     try {
-      const res = await fetch(`${BASE_URL}/bookings/checkout-session/${doctorId}`,{
+      const res = await fetch(`${BASE_URL}/bookings/checkout-session/${doctorId}/${patientId}`,{
         method : 'post',
         headers : {
           Authorization : `Bearer ${token}`
+        },
+        body : {
+          userId : localStorage.getItem(user)
         }
       })
 

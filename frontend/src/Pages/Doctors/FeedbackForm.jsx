@@ -9,7 +9,7 @@ const FeedbackForm = () => {
 
   const [rating,setRating] = useState(0);
   const [hover,setHover] = useState(0);
-  const [reviewtext, setReviewText] = useState('');
+  const [reviewText, setReviewText] = useState('');
   const [loading,setLoading] =useState(false);
 
   const {id} =useParams()
@@ -17,9 +17,10 @@ const FeedbackForm = () => {
   const handleSubmitReview = async (e) =>{
     e.preventDefault();
     setLoading(true)
+    console.log(reviewText)
 
     try {
-      if(!rating || !reviewtext){
+      if(!rating || !reviewText){
         setLoading(false)
         return toast.error('Rating & Review Fields are required')
       }
@@ -29,7 +30,7 @@ const FeedbackForm = () => {
           'Content-Type' : 'application/json',
           Authorization : `Bearer ${token}`
         },
-        body : JSON.stringify({rating,reviewtext})
+        body : JSON.stringify({rating,reviewText})
       })
 
       const result = await res.json()

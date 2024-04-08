@@ -10,10 +10,12 @@ const reviewSchema = new mongoose.Schema(
     user: {
       type: mongoose.Types.ObjectId,
       ref: "User",
+      Image : "https://res.cloudinary.com/dtwjv4kdk/image/upload/v1711353954/mxjg8zqhwc4shpqjn7ql.png",
+      UserName : " ",
     },
     reviewText: {
       type: String,
-      required: true,
+      required: false,
     },
     rating: {
       type: Number,

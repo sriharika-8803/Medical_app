@@ -9,6 +9,8 @@ const Feedback = ( { reviews, totalRating } ) => {
 
     const [showFeedbackForm, setShowFeedbackForm] = useState(false);
 
+    console.log(reviews)
+
 
   return (
     <div>
@@ -21,7 +23,7 @@ const Feedback = ( { reviews, totalRating } ) => {
         <div key={index} className="flex justify-between gap-10 mb-30px]">
             <div className="flex gap-3">
                 <figure className='w-10 h-10 rounded-full'>
-                    <img className='w-full' src={review?.user?.photo} alt="" />
+                    <img className='w-full' src={review?.user?.Image} alt="" />
                 </figure>
 
                 <div>
